@@ -1,0 +1,48 @@
+server:
+  port: 9200
+  servlet:
+    context-path: /auth
+spring:
+  application:
+    name: ruoyi-auth
+  profiles:
+    active: dev
+  datasource:
+    url: jdbc:mysql://localhost:3306/ry-cloud?useSSL=false&serverTimezone=UTC
+    username: root
+    password: zhuming1234
+  redis:
+    host: localhost
+    port: 6379
+    password:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yml
+        extension-configs:
+          - data-id: ruoyi-auth-dev.yml
+            group: DEFAULT_GROUP
+            refresh: true
+        # 禁用自动加载无后缀的默认配置（如 ruoyi-auth.yml）
+        enable-remote-sync-data: false
+        # 仅加载指定 Data ID
+        shared-configs:
+          - data-id: ruoyi-auth-dev.yml
+            group: DEFAULT_GROUP
+            refresh: true
+logging:
+  level:
+    com.alibaba.nacos: debug
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"  # 暴露所有端点
+  endpoint:
+    health:
+      show-details: always
+    shutdown:
+      enabled: true   # 可选：启用关闭端点（测试后关闭）
