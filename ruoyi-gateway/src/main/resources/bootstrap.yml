@@ -19,6 +19,15 @@ spring:
             - Path=/auth/**
           filters:
             - StripPrefix=1
+
+        # add zm系统服务路由
+        - id: ruoyi-system
+          uri: lb://ruoyi-system
+          predicates:
+            - Path=/system/**
+          filters:
+            - StripPrefix=1
+
     nacos:
       discovery:
         # 服务注册地址

@@ -31,7 +31,8 @@ module.exports = {
   // webpack-dev-server 相关配置
   devServer: {
     host: '0.0.0.0',
-    port: port,
+    //port: port,
+    port: 1024,
     open: true,
     proxy: {
       // detail: https://cli.vuejs.org/config/#devserver-proxy
@@ -40,9 +41,15 @@ module.exports = {
         target: `http://localhost:8080`,
         changeOrigin: true,
         pathRewrite: {
-          ['^' + process.env.VUE_APP_BASE_API]: ''
+          //['^' + process.env.VUE_APP_BASE_API]: ''
+          '^/dev-api': '/'
           //'^/api': ''
-        }
+        },
+          logLevel: 'debug',  // 开启详细日志
+          secure: false,      // 禁用 HTTPS 验证
+          headers: {
+            Connection: 'keep-alive'  // 保持持久连接
+          }
       }
     },
     disableHostCheck: true
