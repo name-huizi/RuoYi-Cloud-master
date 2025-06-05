@@ -1,0 +1,17 @@
+server:
+  port: 9200
+
+spring:
+  application:
+    name: ruoyi-auth
+  datasource:
+    url: jdbc:mysql://localhost:3306/ry-cloud?useSSL=false
+    username: root
+    password: your_password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    host: localhost
+    port: 6379
+
+token:
+  secret: abcdefghijklmnopqrstuvwxyz

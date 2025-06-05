@@ -12,6 +12,7 @@ spring:
     url: jdbc:mysql://localhost:3306/ry-cloud?useSSL=false&serverTimezone=UTC
     username: root
     password: zhuming1234
+    driver-class-name: com.mysql.cj.jdbc.Driver #add zm
   redis:
     host: localhost
     port: 6379

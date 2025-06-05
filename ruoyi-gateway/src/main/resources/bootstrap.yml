@@ -28,6 +28,12 @@ spring:
           filters:
             - StripPrefix=1
 
+      # add zm添加前端路由支持
+      - id: frontend-route
+        uri: lb://ruoyi-ui  # 虚拟路由，实际不需要服务
+        predicates:
+          - Path=/**
+
     nacos:
       discovery:
         # 服务注册地址

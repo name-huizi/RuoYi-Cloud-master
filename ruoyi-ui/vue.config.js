@@ -37,14 +37,22 @@ module.exports = {
     proxy: {
       // detail: https://cli.vuejs.org/config/#devserver-proxy
         [process.env.VUE_APP_BASE_API]: {
-        //'/api': {
-        target: `http://localhost:8080`,
-        changeOrigin: true,
-        pathRewrite: {
-          //['^' + process.env.VUE_APP_BASE_API]: ''
-          '^/dev-api': '/'
-          //'^/api': ''
+        //'/auth': {
+          //'/dev-api': {
+            target: `http://localhost:8080`,
+            //target: `http://localhost:9200`,
+            changeOrigin: true,
+            pathRewrite: {
+              ['^' + process.env.VUE_APP_BASE_API]: ''
+           // '^/dev-api': ''
+              //'^/dev-api': '/'
+            //'^/api': ''
         },
+          // '/system': { // 代理系统服务请求
+          //   target: 'http://localhost:8080',
+          //   changeOrigin: true
+          // },
+
           logLevel: 'debug',  // 开启详细日志
           secure: false,      // 禁用 HTTPS 验证
           headers: {
