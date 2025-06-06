@@ -1,8 +1,8 @@
 server:
   port: 9200
-  servlet:
+    #servlet:
     #context-path: /auth
-    context-path: /ruoyi-auth
+  #context-path: /ruoyi-auth
 spring:
   application:
     name: ruoyi-auth

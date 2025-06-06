@@ -3,9 +3,9 @@ server:
   port: 9201
 #new add
   #port: 9200
-  servlet:
+  #servlet:
   #  context-path: /system
-    context-path: /ruoyi-system  # 确保此项存在且正确
+  #  context-path: /ruoyi-system  # 确保此项存在且正确
 
 # 添加以下Actuator配置
 management:

@@ -43,8 +43,8 @@ module.exports = {
             //target: `http://localhost:9200`,
             changeOrigin: true,
             pathRewrite: {
-              ['^' + process.env.VUE_APP_BASE_API]: ''
-           // '^/dev-api': ''
+             // ['^' + process.env.VUE_APP_BASE_API]: ''
+             '^/dev-api': ''
               //'^/dev-api': '/'
             //'^/api': ''
         },

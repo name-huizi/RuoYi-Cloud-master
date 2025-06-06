@@ -19,6 +19,7 @@ spring:
             - Path=/auth/**
           filters:
             - StripPrefix=1
+            - RewritePath=/(?<remaining>.*), /ruoyi-auth/$\{remaining}
 
         # add zm系统服务路由
         - id: ruoyi-system
@@ -27,8 +28,9 @@ spring:
             - Path=/system/**
           filters:
             - StripPrefix=1
+            - RewritePath=/(?<remaining>.*), /ruoyi-system/$\{remaining}
 
-      # add zm添加前端路由支持
+        # add zm添加前端路由支持
       - id: frontend-route
         uri: lb://ruoyi-ui  # 虚拟路由，实际不需要服务
         predicates:
@@ -61,3 +63,9 @@ spring:
             groupId: DEFAULT_GROUP
             data-type: json
             rule-type: gw-flow
+#zm add
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh,gateway
